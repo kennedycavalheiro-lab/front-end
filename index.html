@@ -10,9 +10,19 @@
     <style>
       .body{
         backgroud-coolor:black;
+        color: gold
       }
+      .igual{
+        background-color: azure;
+        color: rgba(43, 175, 180, 0);
+      }
+      .senha{
+        background-color: lab(from color l a b);
+        color: color-mix(in srgb, color percentage, color percentage);
+      }
+
     </style>
-    <body>
+    <body class="body">
       bom dia, esa musica e muito foda!
       <form method="POST" acton="imdex.php">
         <fieldset>
@@ -20,8 +30,8 @@
             primeiro formulario
           </legend>
           <br>
-          Usuario: <input type="test" placeholer="usuario" minlength="5" maxlength="10" required><br>
-          Senha:   <input type="password" placeholder="Senha" minlength="5" maxlength="10" required><br>
+          <usuario class="igual"></p>Usuario: <input type="test" placeholer="usuario" minlength="5" maxlength="10" required><br>
+         <senha class="senha"></senha> Senha:   <input type="password" placeholder="Senha" minlength="5" maxlength="10" required><br>
           <input type="submit" value="regitrar"
         </fieldset>
       </form>
