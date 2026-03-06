@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
   <html lang="PT-BR">
       <head>
@@ -53,16 +52,13 @@
                 Endereço <input type="text"><br>
                 CEP <input type="number"><br>
                 Arquivo <input type="file"><br>
-                <h1></h1><br>
-                <h2></h2><br>
-                <h3></h3><br>
-                <h4></h4><br>
-                <h5></h5><br>
-                <h6></h6><br>
-                <a href=""><div class="link"></a>
+                <h1>curiosidade de anime</h1><br>
+                <details>
+                    <a href=""><div class="link">capa da akatsuki</a>
+                    <a href=""><div class="link"></a>
+                </details>
             </fieldset>
             <img src="https://i.pinimg.com/736x/5d/b0/a9/5db0a9f78ea0849220416ace3e2d208a.jpg" width="100%" height="200%">
         </form>
       </body>
   </html>
-
