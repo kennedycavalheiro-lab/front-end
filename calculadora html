@@ -4,6 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título da Página</title>
+    <style>
+        .campo{
+            background-color: darkcyan;
+            border:4px solid blue;
+        }
+        .botao{
+            width:5% ;
+            height: 3%;
+            background-color: blue;
+            border:4px solid darkcyan ;
+        }
+        .botaox{
+            width:5% ;
+            height: 3%;
+            background-color: rgb(0, 229, 255);
+            border:4px solid rgb(15, 83, 77) ;
+        }
+        .botao3{
+            width:13% ;
+            height: 3%;
+            background-color: rgb(105, 178, 186);
+            border:4px solid rgb(98, 231, 220) ;
+        }
+        .botao4{
+            width:13% ;
+            height: 3%;
+            background-color: rgb(54, 56, 127);
+            border:4px solid rgb(31, 75, 136) ;
+        }
+    </style>
 </head>
 <body>
    <fieldset>
@@ -12,29 +42,29 @@
       <button class="botao">1</button>
       <button class="botao">2</button>
       <button class="botao">3</button>
-      <button class="botao">x</button>
-      <button class="botao">^</button>
+      <button class="botaox">x</button>
+      <button class="botaox">^</button>
       <br>
       <button class="botao">4</button>
       <button class="botao">5</button>
       <button class="botao">6</button>
-      <button class="botao">/</button>
-      <button class="botao">(</button>
+      <button class="botaox">/</button>
+      <button class="botaox">(</button>
       <br>
       <button class="botao">7</button>
       <button class="botao">8</button>
       <button class="botao">9</button>
-      <button class="botao">+</button>
-      <button class="botao">)</button>
+      <button class="botaox">+</button>
+      <button class="botaox">)</button>
       <br>
-      <button class="botao">*</button>
+      <button class="botaox">*</button>
       <button class="botao">0</button>
-      <button class="botao">#</button>
-      <button class="botao">-</button>
-      <button class="botao">%</button>
+      <button class="botaox">#</button>
+      <button class="botaox">-</button>
+      <button class="botaox">%</button>
       <br>
-      <button class="botao">c</button>
-      <button class="botao">=</button>
+      <button class="botao4">c</button>
+      <button class="botao3">=</button>
    </fieldset> 
 </body>
 </html>
