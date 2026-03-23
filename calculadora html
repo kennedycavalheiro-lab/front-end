@@ -39,7 +39,7 @@
             document.getElementById("campo").value += valor;
         }
         function limpar(){
-            document.getElementById("campo").value += "";
+            document.getElementById("campo").value = "";
 
         }
     </script>
