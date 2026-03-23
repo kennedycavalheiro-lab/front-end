@@ -72,7 +72,7 @@
       <button class="botaox"onclick="adicionar('-')">-</button>
       <button class="botaox"onclick="adicionar('%')">%</button>
       <br>
-      <button class="botao4"onclick="limpar('')">c</button>
+      <button class="botao4"onclick="limpar()">c</button>
       <button class="botao3"onclick="adicionar('')">=</button>
    </fieldset> 
 </body>
