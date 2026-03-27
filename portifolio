@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Kennedy S</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    section{
+        <h2>Sobre mim</h2>
+        <p>Olá, meu nome é Kennedy Verçosa Cavalheiro.</p>
+        <p>Apresentação: Olá, sou Kennedy gosto de anime de ação e comedia e cuido de um gato.</p>
+        <p>Hobbies: Meu Hobbies e montar cubo magico e ler livro de misterio.</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Vb8uiCgCuEPeoD90C6aFartiVqm7_-NIw&s" width="500" height="300"<br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mNo0t6fBYBARsQbkQuvfB0XdfD0g1drp-g&s" width="500" height="300"
+    }
+<body>
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+
+
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <p>Confira alguns dos meus trabalhos:</p>
+        <ul>
+            <li><a href="https://github.com/PauloACanedoS?tab=repositories" target="_blank">Meu GitHub</a></li>
+            <li><a href="#" target="_blank">Projeto Projeto_Python_Pro</a></li>
+        </ul>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form id="formContato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
