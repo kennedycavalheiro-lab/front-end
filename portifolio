@@ -13,7 +13,12 @@
         <p>Apresentação: Olá, sou Kennedy gosto de anime de ação e comedia e cuido de um gato.</p>
         <p>Hobbies: Meu Hobbies e montar cubo magico e ler livro de misterio.</p>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Vb8uiCgCuEPeoD90C6aFartiVqm7_-NIw&s" width="500" height="300"<br>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mNo0t6fBYBARsQbkQuvfB0XdfD0g1drp-g&s" width="500" height="300"
+        <h2>Formação</h2>
+        <P>encino:estou estudando html</P>
+        <p>curso complementar:informatica</p>
+        <p>idioma:portugues brasileiro</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mNo0t6fBYBARsQbkQuvfB0XdfD0g1drp-g&s" width="500" height="300"<br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK1qF1B45A1Jz8R4SAQupVvhhLXZkshON_ig&s" width="500" height="300"
     }
 <body>
     <nav>
