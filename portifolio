@@ -1,63 +1,154 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - Kennedy S</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portifolio luiz</title>
+    <style>
+        /* Estilos Base */
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.8s ease, color 0.8s ease;
+            line-height: 1.6;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10%;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+        /* Classes auxiliares para o script */
+        
+        .content-box {
+            padding: 40px;
+            border-radius: 20px;
+            background: #3F5EFB;
+            background: radial-gradient(circle, rgba(63, 94, 251, 1) 20%, rgba(161, 185, 227, 1) 39%, rgba(81, 119, 224, 1) 52%, rgba(117, 166, 138, 1) 68%, rgba(252, 70, 107, 1) 84%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-    section{
-        <h2>Sobre mim</h2>
-        <p>Olá, meu nome é Kennedy Verçosa Cavalheiro.</p>
-        <p>Apresentação: Olá, sou Kennedy gosto de anime de ação e comedia e cuido de um gato.</p>
-        <p>Hobbies: Meu Hobbies e montar cubo magico e ler livro de misterio.</p>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Vb8uiCgCuEPeoD90C6aFartiVqm7_-NIw&s" width="500" height="300"<br>
-        <h2>Formação</h2>
-        <P>encino:estou estudando html</P>
-        <p>curso complementar:informatica</p>
-        <p>idioma:portugues brasileiro</p>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6mNo0t6fBYBARsQbkQuvfB0XdfD0g1drp-g&s" width="500" height="300"<br>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK1qF1B45A1Jz8R4SAQupVvhhLXZkshON_ig&s" width="500" height="300"
-    }
+
 <body>
+
     <nav>
-        <ul>
-            <li><a href="#sobre">Sobre mim</a></li>
-            <li><a href="#formacao">Formação</a></li>
-            <li><a href="#portfolio">Portfólio</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
+        <a href="#inicio">ínicio</a>
+        <a href="#criatividade">Trabalho</a>
+        <a href="#tecnologia">Meus Hobbies</a>
+        <a href="#futuro">Final</a>
     </nav>
 
-
-
-    <section id="portfolio">
-        <h2>Portfólio</h2>
-        <p>Confira alguns dos meus trabalhos:</p>
-        <ul>
-            <li><a href="https://github.com/PauloACanedoS?tab=repositories" target="_blank">Meu GitHub</a></li>
-            <li><a href="#" target="_blank">Projeto Projeto_Python_Pro</a></li>
-        </ul>
+    <section id="inicio" data-topico="inicio">
+        <div class="content-box">
+            <h1>oi, meu nome e kennedy</h1>
+            <p>Sou um estudante da escola Elias Abrahão</p>
+        </div>
     </section>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <form id="formContato">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome">
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email">
-
-            <label for="mensagem">Mensagem:</label>
-            <textarea id="mensagem" name="mensagem" rows="5"></textarea>
-
-            <button type="submit">Enviar Mensagem</button>
-        </form>
+    <section id="criatividade" data-topico="criatividade">
+        <div class="content-box">
+            <h1>Criei isso direcionamento para um trabalho do professor</h1>
+            <p>estou me formando em Desenvolvimento de sistemas pelo Colégio Elias Abrahão.</p>
+        </div>
     </section>
 
-    <script src="script.js"></script>
+    <section id="tecnologia" data-topico="tecnologia">
+        <div class="content-box">
+            <h1>Meus Hobbies</h1>
+            <p>No tempo Livre gosto de jogar ping pong, montar cubo magico, ler e programar.</p>
+        </div>
+    </section>
+
+    <section id="futuro" data-topico="futuro">
+        <div class="content-box">
+            <h1>Esse sou eu</h1>
+            <p>sou otako e gosto de jojo.</p>
+        </div>
+    </section>
+
+    <script>
+        // Configuração dos "Rostos" da página
+        const temas = {
+            inicio: {
+                bg: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+                color: "#2d3436"
+            },
+            criatividade: {
+                bg: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+                color: "#4a2c2a"
+            },
+            tecnologia: {
+                bg: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+                color: "#ffffff"
+            },
+            futuro: {
+                bg: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
+                color: "#e0e0e0"
+            }
+        };
+
+        const secoes = document.querySelectorAll('section[data-topico]');
+
+        function atualizarEstilo() {
+            let itemAtivo = "";
+
+            secoes.forEach(secao => {
+                const topo = secao.offsetTop;
+                const altura = secao.clientHeight;
+                // Verifica se a seção está visível na maior parte da tela
+                if (window.scrollY >= (topo - altura / 3)) {
+                    itemAtivo = secao.getAttribute('data-topico');
+                }
+            });
+
+            if (itemAtivo && temas[itemAtivo]) {
+                const config = temas[itemAtivo];
+                document.body.style.background = config.bg;
+                document.body.style.color = config.color;
+            }
+        }
+
+        // Eventos para ativar a mudança
+        window.addEventListener('scroll', atualizarEstilo);
+        window.addEventListener('load', atualizarEstilo); // Define o estilo inicial
+    </script>
 </body>
 
 </html>
