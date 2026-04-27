@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Título da Página</title>
+    .texto{
+        color:black;
+    }
+    .campo{
+        color: red;
+    }
+    .botao
 </head>
 <body>
     <from>
-        CPF:<input type="text" placeholder="digite seu cpf" maxlength="11" minlegth="11"required><br><br>
-        EMAIL:<input type="text" placeholder="digite seu email" maxlength="30" minlegth="11"required><br><br>
-        NOME:<input type="text" placeholder="digite seu nomr" maxlength="50" minlegth="11"required><br><br>
-        TELEFONE:<input type="text" placeholder="digite seu telefone" maxlength="11" minlegth="11"required><br><br>
-        senha:<input type="text" placeholder="digite sua senha" maxlength="10" minlegth="5"required><br><br>
-        <input type="submit" value="cadastrar">
+        <fieldset>
+            <legend>Cadastro do Firebase</legend>
+                <p class="texto">CPF:</p><input type="text" placeholder="digite seu cpf" maxlength="11" minlegth="11"required><br><br>
+                <p class="texto">EMAIL:</p><input type="text" placeholder="digite seu email" maxlength="30" minlegth="11"required><br><br>
+                <p class="texto">NOME:</p><input type="text" placeholder="digite seu nomr" maxlength="50" minlegth="11"required><br><br>
+                <p class="texto">TELEFONE:</p><input type="text" placeholder="digite seu telefone" maxlength="11" minlegth="11"required><br><br>
+                <p class="texto">SENHA:</p><input type="text" placeholder="digite sua senha" maxlength="10" minlegth="5"required><br><br>
+                <input type="submit" value="cadastrar">
+        </fieldset>
     </from>
 </body>
 </html>
