@@ -11,24 +11,12 @@
             --dark: #1A1A1A;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            height: 100vh;
-            color: white;
-            display: flex;
-            align-items: center;
         }
         
         nav {
@@ -49,127 +37,143 @@
             color: var(--primary);
         }
         
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
         .nav-links a {
             color: white;
             text-decoration: none;
+            margin-left: 2rem;
             font-weight: 500;
-            transition: color 0.3s;
         }
         
         .nav-links a:hover {
             color: var(--primary);
         }
         
-        .hero {
+        /* Hero */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4') center/cover no-repeat;
+            height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
             text-align: center;
-            max-width: 800px;
+        }
+        
+        .hero-content {
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
+        .hero-content h1 {
+            font-size: 3.8rem;
             margin-bottom: 1rem;
         }
         
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
         }
         
         .btn {
-            display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 14px 32px;
+            padding: 15px 35px;
+            border: none;
             border-radius: 50px;
-            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: all 0.3s;
+            cursor: pointer;
+            transition: 0.3s;
         }
         
         .btn:hover {
             background: #e55a00;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
+        /* Seção de Destinos */
         .destinos {
-            padding: 80px 5%;
+            padding: 100px 5%;
             background: #f8f9fa;
         }
         
         .section-title {
             text-align: center;
+            font-size: 2.8rem;
             margin-bottom: 3rem;
-            font-size: 2.5rem;
             color: var(--dark);
         }
         
         .destinos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
         }
         
         .card {
             background: white;
-            border-radius: 15px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s;
         }
         
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
         }
         
         .card img {
             width: 100%;
-            height: 220px;
+            height: 260px;
             object-fit: cover;
         }
         
         .card-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         
         .card h3 {
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+        }
+        
+        .flag {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
         
         .preco {
             color: var(--primary);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: bold;
             margin: 1rem 0;
+        }
+        
+        .info {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1.2rem;
         }
         
         footer {
             background: var(--dark);
             color: white;
-            padding: 60px 5% 30px;
+            padding: 70px 5% 30px;
+            text-align: center;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-        }
-        
-        .bandeira {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+
+    <!-- Navegação -->
     <nav>
         <div class="logo">Voyage Brasil</div>
         <div class="nav-links">
@@ -179,15 +183,14 @@
             <a href="#">Promoções</a>
             <a href="#">Contato</a>
         </div>
-        <a href="#" class="btn">Fazer Orçamento</a>
     </nav>
 
     <!-- Hero -->
     <header>
-        <div class="hero">
-            <h1>Descubra o Mundo com a Voyage Brasil</h1>
-            <p>Viagens internacionais com o melhor custo-benefício do Brasil. De Paris a Tóquio, realizamos seus sonhos.</p>
-            <a href="#" class="btn">Ver Destinos Internacionais</a>
+        <div class="hero-content">
+            <h1>Viagens Internacionais com Sotaque Brasileiro</h1>
+            <p>Conheça o mundo com segurança, conforto e os melhores preços do Brasil</p>
+            <button class="btn">Ver todos os destinos</button>
         </div>
     </header>
 
@@ -196,38 +199,43 @@
         <h2 class="section-title">Destinos Internacionais em Destaque</h2>
         
         <div class="destinos-grid">
-            <!-- Destino 1 -->
+
+            <!-- França -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Paris">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" alt="Paris">
                 <div class="card-content">
-                    <h3>Paris, França</h3>
-                    <p>7 dias • Aéreo + Hotel 4★ + Traslados</p>
+                    <div class="flag">🇫🇷</div>
+                    <h3>França</h3>
+                    <p class="info">Paris • 7 noites • Aéreo + Hotel 4★</p>
                     <div class="preco">A partir de R$ 6.890</div>
-                    <a href="#" class="btn">Ver Pacote</a>
+                    <button class="btn" style="width: 100%;">Ver Pacotes para França</button>
                 </div>
             </div>
 
-            <!-- Destino 2 -->
+            <!-- Japão -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Nova York">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4de529484" alt="Japão">
                 <div class="card-content">
-                    <h3>Nova York, EUA</h3>
-                    <p>8 dias • Aéreo + Hotel em Manhattan</p>
-                    <div class="preco">A partir de R$ 8.490</div>
-                    <a href="#" class="btn">Ver Pacote</a>
+                    <div class="flag">🇯🇵</div>
+                    <h3>Japão</h3>
+                    <p class="info">Tóquio + Kyoto • 9 noites • Aéreo + Hotéis</p>
+                    <div class="preco">A partir de R$ 12.490</div>
+                    <button class="btn" style="width: 100%;">Ver Pacotes para Japão</button>
                 </div>
             </div>
 
-            <!-- Destino 3 -->
+            <!-- Estados Unidos -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?ixlib=rb-4.0.3&auto=format&fit=crop&q=80" alt="Dubai">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9" alt="Nova York">
                 <div class="card-content">
-                    <h3>Dubai, Emirados Árabes</h3>
-                    <p>7 dias • All Inclusive Luxo</p>
-                    <div class="preco">A partir de R$ 7.990</div>
-                    <a href="#" class="btn">Ver Pacote</a>
+                    <div class="flag">🇺🇸</div>
+                    <h3>Estados Unidos</h3>
+                    <p class="info">Nova York • 8 noites • Aéreo + Hotel em Manhattan</p>
+                    <div class="preco">A partir de R$ 8.790</div>
+                    <button class="btn" style="width: 100%;">Ver Pacotes para EUA</button>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -235,35 +243,25 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div class="logo" style="color: #FF6B00; font-size: 2rem;">Voyage Brasil</div>
-                <p style="margin-top: 15px;">Sua agência de viagens internacional de confiança no Brasil.</p>
-                <div class="bandeira">🇧🇷</div>
+                <h2 style="color: var(--primary);">Voyage Brasil</h2>
+                <p>Realizando sonhos de viagem desde 2018</p>
+                <p style="margin-top: 15px; font-size: 2.5rem;">🇧🇷</p>
             </div>
-            
             <div>
                 <h3>Contato</h3>
                 <p><i class="fas fa-phone"></i> (11) 4002-8922</p>
-                <p><i class="fas fa-whatsapp"></i> (11) 98765-4321</p>
+                <p><i class="fab fa-whatsapp"></i> (11) 98765-4321</p>
                 <p><i class="fas fa-envelope"></i> contato@voyagebrasil.com.br</p>
             </div>
-            
             <div>
-                <h3>Destinos Populares</h3>
-                <p>Europa • Estados Unidos • Ásia • Oriente Médio • América do Sul</p>
-            </div>
-            
-            <div>
-                <h3>Siga-nos</h3>
-                <p>
-                    <i class="fab fa-instagram"></i> @voyagebrasil<br>
-                    <i class="fab fa-facebook"></i> /voyagebrasil<br>
-                    <i class="fab fa-tiktok"></i> @voyagebrasil
-                </p>
+                <h3>Destinos</h3>
+                <p>Europa • Ásia • América do Norte • Oriente Médio • Oceania</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; opacity: 0.7; font-size: 0.9rem;">
-            © 2026 Voyage Brasil - Viagens Internacionais • Todos os direitos reservados
-        </div>
+        <p style="opacity: 0.6; font-size: 0.9rem;">
+            © 2026 Voyage Brasil - Agência de Viagens Internacionais • São Paulo, Brasil
+        </p>
     </footer>
+
 </body>
 </html>
