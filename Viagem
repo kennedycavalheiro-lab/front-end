@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyage Brasil - Viagens Internacionais</title>
+    <title>M.K Brasil - Viagens Internacionais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
@@ -175,7 +175,7 @@
 
     <!-- Navegação -->
     <nav>
-        <div class="logo">Voyage Brasil</div>
+        <div class="logo">M.K Brasil</div>
         <div class="nav-links">
             <a href="#">Início</a>
             <a href="#">Destinos</a>
@@ -214,7 +214,7 @@
 
             <!-- Japão -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1540959733332-eab4de529484" alt="Japão">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTskHjtYZvlU2_ld4tj8Zk9K2s3XPBFSGWNZQ&s" alt="Japão">
                 <div class="card-content">
                     <div class="flag">🇯🇵</div>
                     <h3>Japão</h3>
@@ -243,7 +243,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <h2 style="color: var(--primary);">Voyage Brasil</h2>
+                <h2 style="color: var(--primary);">M.K Brasil</h2>
                 <p>Realizando sonhos de viagem desde 2018</p>
                 <p style="margin-top: 15px; font-size: 2.5rem;">🇧🇷</p>
             </div>
@@ -251,7 +251,7 @@
                 <h3>Contato</h3>
                 <p><i class="fas fa-phone"></i> (11) 4002-8922</p>
                 <p><i class="fab fa-whatsapp"></i> (11) 98765-4321</p>
-                <p><i class="fas fa-envelope"></i> contato@voyagebrasil.com.br</p>
+                <p><i class="fas fa-envelope"></i> M.Kbrasil.com.br</p>
             </div>
             <div>
                 <h3>Destinos</h3>
@@ -259,7 +259,7 @@
             </div>
         </div>
         <p style="opacity: 0.6; font-size: 0.9rem;">
-            © 2026 Voyage Brasil - Agência de Viagens Internacionais • São Paulo, Brasil
+            © 2026 M.K Brasil - Agência de Viagens Internacionais • São Paulo, Brasil
         </p>
     </footer>
 
