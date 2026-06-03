@@ -1,1 +1,19 @@
-
+.linha1{
+    width:50px ;
+    height:100px ;
+    border-radius: 10px;
+    border: 1px solid black ;
+    display: inline-block;
+}
+.linha2{
+    width: ;
+    height: ;
+    border-radius: ;
+    border: ;
+}
+.linha3{
+    width: ;
+    height: ;
+    border-radius: ;
+    border: ;
+}
