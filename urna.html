@@ -1,41 +1,608 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Primeira Página</title>
+    <title>Urna Eleitoral • Simulação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .button{
-            width:8.12%;
-            background: linear-gradient(135deg, #F2F2F2 0%, #BCC6CC 50%, #888B90 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@500&amp;display=swap');
+        
+        .urna-container {
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4),
+                        0 10px 10px -6px rgb(0 0 0 / 0.4),
+                        inset 0 1px 0 rgb(255 255 255 / 0.1);
+            border: 12px solid #374151;
         }
-        .button1{
-            background-color: rgb(0, 253, 25);
+        
+        .tela {
+            background: linear-gradient(145deg, #111827, #1f2937);
+            box-shadow: inset 0 4px 12px rgb(0 0 0 / 0.6),
+                        0 0 0 1px #374151;
+            font-family: 'Roboto Mono', monospace;
         }
-        .button2{
-            background-color: red;
+        
+        .digito {
+            font-size: 3.5rem;
+            line-height: 1;
+            font-weight: 700;
+            color: #4ade80;
+            text-shadow: 0 0 10px rgb(74 222 128 / 0.5);
+            min-width: 3.5rem;
+            text-align: center;
         }
-        .button3{
-            background-color: beige;
+        
+        .btn-numero {
+            background: linear-gradient(145deg, #4b5563, #374151);
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3),
+                        inset 0 1px 0 rgb(255 255 255 / 0.2);
+        }
+        
+        .btn-numero:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.3);
+        }
+        
+        .btn-especial {
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+        }
+        
+        .btn-branco {
+            background: linear-gradient(145deg, #f3e8ff, #e0d1f0);
+            color: #581c87;
+        }
+        
+        .btn-corrige {
+            background: linear-gradient(145deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .btn-confirma {
+            background: linear-gradient(145deg, #22c55e, #16a34a);
+            color: white;
+            font-weight: 800;
+            font-size: 1.05rem;
+        }
+        
+        .urna-header {
+            background: linear-gradient(to right, #166534, #15803d);
+        }
+        
+        .candidato-card {
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .numero-display {
+            letter-spacing: 0.5rem;
         }
     </style>
 </head>
-<body>
-    
+<body class="bg-zinc-950 flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-[420px]">
         
-    
-    <button class="button" onclick="adicionar(1)">1</button>
-    <button class="button" onclick="adicionar(1)">2</button>
-    <button class="button" onclick="adicionar(1)">3</button><br>
-    <button class="button" onclick="adicionar(1)">4</button>
-    <button class="button" onclick="adicionar(1)">5</button>
-    <button class="button" onclick="adicionar(1)">6</button><br>
-    <button class="button" onclick="adicionar(1)">7</button>
-    <button class="button" onclick="adicionar(1)">8</button>
-    <button class="button" onclick="adicionar(1)">9</button><br>
-    <button class="button" onclick="adicionar(1)">0</button><br>
-    <button class="button3" onclick="adicionar(1)">branco</button>
-    <button class="button2" onclick="adicionar(1)">corrige</button>
-    <button class="button1" onclick="adicionar(1)">confirme</button>
+        <!-- Título superior -->
+        <div class="flex items-center justify-center gap-x-3 mb-4">
+            <div class="flex items-center gap-x-2">
+                <i class="fa-solid fa-landmark text-emerald-500 text-3xl"></i>
+                <div>
+                    <span class="font-bold text-2xl tracking-tighter text-white">URNA</span>
+                    <span class="font-bold text-2xl tracking-tighter text-emerald-400">ELEITORAL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container da Urna -->
+        <div class="urna-container bg-zinc-800 rounded-3xl overflow-hidden border border-zinc-700 max-w-[420px] mx-auto">
+            
+            <!-- Header da Urna -->
+            <div class="urna-header px-5 py-3 flex items-center justify-between text-white">
+                <div class="flex items-center gap-x-2">
+                    <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-balance-scale text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-sm tracking-[2px]">TSE</div>
+                        <div class="text-[10px] text-emerald-200 -mt-1">JUSTIÇA ELEITORAL</div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="font-mono text-xs tracking-widest">ELEIÇÕES 2026</div>
+                    <div class="text-emerald-300 text-[10px] font-medium">SIMULAÇÃO</div>
+                </div>
+            </div>
+
+            <!-- Tela -->
+            <div class="p-4 bg-zinc-900">
+                <div class="tela border border-zinc-700 rounded-2xl p-5 min-h-[220px] flex flex-col">
+                    
+                    <!-- Cargo -->
+                    <div class="flex items-center justify-between mb-1">
+                        <div>
+                            <span class="text-emerald-400 text-xs font-bold tracking-[1.5px]">SEU VOTO PARA</span>
+                            <h2 id="cargo-nome" 
+                                class="text-white text-3xl font-black tracking-tighter">PRESIDENTE</h2>
+                        </div>
+                        <div id="cargo-progresso"
+                             class="px-3 py-1 bg-zinc-800 border border-zinc-700 rounded-full text-xs font-mono text-emerald-400 flex items-center gap-x-1.5">
+                            <i class="fa-solid fa-check-double text-[10px]"></i>
+                            <span id="cargo-atual">1/2</span>
+                        </div>
+                    </div>
+
+                    <!-- Display do Número -->
+                    <div class="mt-3 mb-2">
+                        <div class="text-emerald-400 text-xs font-bold tracking-widest mb-1">NÚMERO</div>
+                        <div id="numero-display" 
+                             class="numero-display flex items-center justify-center bg-zinc-950 border border-zinc-800 rounded-xl py-2 px-4 min-h-[78px]">
+                        </div>
+                    </div>
+
+                    <!-- Informações do Candidato -->
+                    <div id="candidato-info" class="flex-1 flex items-center justify-center min-h-[90px]">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teclado Numérico -->
+            <div class="px-4 pt-2 pb-4 bg-zinc-800">
+                <div class="grid grid-cols-3 gap-2 mb-3">
+                    <button onclick="pressionarNumero('1')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">1</button>
+                    <button onclick="pressionarNumero('2')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">2</button>
+                    <button onclick="pressionarNumero('3')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">3</button>
+                    
+                    <button onclick="pressionarNumero('4')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">4</button>
+                    <button onclick="pressionarNumero('5')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">5</button>
+                    <button onclick="pressionarNumero('6')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">6</button>
+                    
+                    <button onclick="pressionarNumero('7')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">7</button>
+                    <button onclick="pressionarNumero('8')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">8</button>
+                    <button onclick="pressionarNumero('9')" class="btn-numero h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">9</button>
+                    
+                    <div class="col-span-3 flex justify-center">
+                        <button onclick="pressionarNumero('0')" 
+                                class="btn-numero w-[72%] h-14 rounded-2xl flex items-center justify-center active:scale-[0.97]">0</button>
+                    </div>
+                </div>
+
+                <!-- Botões Especiais -->
+                <div class="grid grid-cols-3 gap-3">
+                    <button onclick="votoBranco()"
+                            class="btn-especial btn-branco h-12 rounded-2xl flex flex-col items-center justify-center text-sm shadow-inner active:scale-[0.985]">
+                        <span class="font-black tracking-wider">BRANCO</span>
+                    </button>
+                    
+                    <button onclick="corrigir()"
+                            class="btn-especial btn-corrige h-12 rounded-2xl flex flex-col items-center justify-center text-sm shadow-inner active:scale-[0.985]">
+                        <span class="font-black tracking-wider">CORRIGE</span>
+                    </button>
+                    
+                    <button onclick="confirmarVoto()"
+                            class="btn-especial btn-confirma h-12 rounded-2xl flex flex-col items-center justify-center text-sm shadow-inner active:scale-[0.985]">
+                        <span class="font-black tracking-[1px]">CONFIRMA</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="mt-5 text-center">
+            <div class="flex items-center justify-center gap-x-2 text-xs text-zinc-500">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>Simulação educacional • Não oficial</span>
+            </div>
+            <button onclick="reiniciarTudo()" 
+                    class="mt-3 text-xs px-4 py-1.5 rounded-full border border-zinc-700 hover:bg-zinc-900 transition-colors text-zinc-400 hover:text-zinc-300 flex items-center gap-x-2 mx-auto text-[10px]">
+                <i class="fa-solid fa-redo text-[10px]"></i>
+                <span>REINICIAR SIMULAÇÃO</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="modal-confirmacao" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl w-full max-w-[320px] overflow-hidden">
+            <div class="p-6 text-center">
+                <div class="mx-auto w-16 h-16 bg-emerald-500/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-check-circle text-emerald-500 text-5xl"></i>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-white mb-1">Voto confirmado!</h3>
+                <p id="modal-mensagem" class="text-emerald-400 text-sm mb-5"></p>
+                
+                <div id="modal-detalhes" class="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 text-left text-sm mb-6"></div>
+                
+                <button onclick="fecharModalEContinuar()" 
+                        class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 transition-colors text-white font-bold rounded-2xl text-sm tracking-wider">
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Final -->
+    <div id="modal-final" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-3xl w-full max-w-[360px] overflow-hidden">
+            <div class="p-6">
+                <div class="text-center mb-5">
+                    <i class="fa-solid fa-vote-yea text-emerald-500 text-5xl mb-3"></i>
+                    <h3 class="text-2xl font-bold text-white">Votação finalizada!</h3>
+                    <p class="text-zinc-400 text-sm mt-1">Obrigado por participar da simulação.</p>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 mb-5">
+                    <div class="text-xs uppercase tracking-widest text-emerald-400 font-bold mb-3 px-1">RESUMO DO SEU VOTO</div>
+                    <div id="resumo-votos" class="space-y-3 text-sm"></div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="reiniciarTudo()" 
+                            class="flex-1 py-3 border border-zinc-700 hover:bg-zinc-800 transition-colors text-white font-medium rounded-2xl text-sm">
+                        VOTAR NOVAMENTE
+                    </button>
+                    <button onclick="fecharModalFinal()" 
+                            class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-500 transition-colors text-white font-bold rounded-2xl text-sm">
+                        FECHAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== DADOS ====================
+        const cargos = [
+            {
+                nome: "PRESIDENTE",
+                digitos: 2,
+                candidatos: {
+                    "13": { nome: "Luiz Inácio Lula da Silva", partido: "PT - Partido dos Trabalhadores" },
+                    "22": { nome: "Jair Messias Bolsonaro", partido: "PL - Partido Liberal" },
+                    "12": { nome: "Ciro Ferreira Gomes", partido: "PDT - Partido Democrático Trabalhista" },
+                    "15": { nome: "Simone Nassar Tebet", partido: "MDB - Movimento Democrático Brasileiro" }
+                }
+            },
+            {
+                nome: "GOVERNADOR",
+                digitos: 2,
+                candidatos: {
+                    "10": { nome: "João Ricardo Silva", partido: "PSD - Partido Social Democrático" },
+                    "20": { nome: "Ana Paula Mendes Costa", partido: "PSDB - Partido da Social Democracia Brasileira" },
+                    "30": { nome: "Carlos Alberto Ferreira", partido: "PP - Progressistas" },
+                    "45": { nome: "Fernanda Lima Santos", partido: "PSOL - Partido Socialismo e Liberdade" }
+                }
+            }
+        ];
+
+        let currentCargoIndex = 0;
+        let numeroAtual = "";
+        let votoBranco = false;
+        let votosRegistrados = [];
+
+        function getCargoAtual() {
+            return cargos[currentCargoIndex];
+        }
+
+        function atualizarTela() {
+            const cargo = getCargoAtual();
+            
+            document.getElementById('cargo-nome').innerText = cargo.nome;
+            document.getElementById('cargo-atual').innerText = `${currentCargoIndex + 1}/${cargos.length}`;
+            
+            const display = document.getElementById('numero-display');
+            display.innerHTML = '';
+            
+            const container = document.createElement('div');
+            container.className = 'flex items-center justify-center gap-x-1';
+            
+            if (votoBranco) {
+                const span = document.createElement('span');
+                span.className = 'text-4xl font-black text-white tracking-[4px]';
+                span.innerText = 'BRANCO';
+                container.appendChild(span);
+            } else {
+                for (let i = 0; i < cargo.digitos; i++) {
+                    const span = document.createElement('span');
+                    span.className = 'digito px-1';
+                    
+                    if (i < numeroAtual.length) {
+                        span.innerText = numeroAtual[i];
+                        span.style.color = '#4ade80';
+                    } else {
+                        span.innerText = '_';
+                        span.style.color = '#3f4a5f';
+                        span.style.fontWeight = '400';
+                    }
+                    container.appendChild(span);
+                }
+            }
+            display.appendChild(container);
+            
+            const infoDiv = document.getElementById('candidato-info');
+            infoDiv.innerHTML = '';
+            infoDiv.className = 'flex-1 flex items-center justify-center w-full';
+            
+            if (votoBranco) {
+                const div = document.createElement('div');
+                div.className = 'text-center w-full';
+                div.innerHTML = `
+                    <div class="inline-flex items-center justify-center w-12 h-12 bg-white/10 rounded-full mb-2">
+                        <i class="fa-solid fa-file-lines text-white text-3xl"></i>
+                    </div>
+                    <p class="font-bold text-white text-xl tracking-tight">VOTO EM BRANCO</p>
+                    <p class="text-xs text-zinc-400 mt-0.5">Seu voto será registrado sem candidato</p>
+                `;
+                infoDiv.appendChild(div);
+            } 
+            else if (numeroAtual.length === cargo.digitos) {
+                const candidato = cargo.candidatos[numeroAtual];
+                
+                if (candidato) {
+                    const div = document.createElement('div');
+                    div.className = 'candidato-card w-full flex gap-4 items-center';
+                    const iniciais = candidato.nome.split(' ').map(n => n[0]).slice(0, 2).join('');
+                    
+                    div.innerHTML = `
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center shadow-inner border border-emerald-500/30">
+                                <span class="text-white text-3xl font-black tracking-tighter">${iniciais}</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-white text-[15px] leading-tight">${candidato.nome}</p>
+                            <p class="text-emerald-400 text-sm font-medium mt-0.5">${candidato.partido}</p>
+                            <div class="flex items-center gap-x-1.5 mt-2">
+                                <div class="px-2.5 py-px bg-emerald-900/60 text-emerald-400 text-[10px] font-mono rounded">Nº ${numeroAtual}</div>
+                                <div class="text-[10px] text-emerald-400/70">CANDIDATO</div>
+                            </div>
+                        </div>
+                    `;
+                    infoDiv.appendChild(div);
+                } else {
+                    const div = document.createElement('div');
+                    div.className = 'text-center w-full';
+                    div.innerHTML = `
+                        <div class="inline-flex items-center justify-center w-12 h-12 bg-red-500/10 rounded-full mb-2">
+                            <i class="fa-solid fa-exclamation-triangle text-red-400 text-3xl"></i>
+                        </div>
+                        <p class="font-bold text-red-400 text-lg">NÚMERO INVÁLIDO</p>
+                        <p class="text-xs text-zinc-400 mt-1 leading-tight">Este número não corresponde a<br>nenhum candidato cadastrado.</p>
+                        <div class="mt-2 inline-block px-3 py-px bg-red-900/30 text-red-400 text-[10px] font-medium rounded">Será considerado VOTO NULO</div>
+                    `;
+                    infoDiv.appendChild(div);
+                }
+            } 
+            else {
+                const div = document.createElement('div');
+                div.className = 'text-center';
+                div.innerHTML = `
+                    <p class="text-zinc-400 text-sm">Digite o número do candidato</p>
+                    <p class="text-[10px] text-zinc-500 mt-1">Use o teclado numérico abaixo</p>
+                `;
+                infoDiv.appendChild(div);
+            }
+        }
+
+        function pressionarNumero(digito) {
+            const cargo = getCargoAtual();
+            if (votoBranco) return;
+            if (numeroAtual.length < cargo.digitos) {
+                numeroAtual += digito;
+                atualizarTela();
+            }
+        }
+
+        function votoBranco() {
+            if (numeroAtual.length > 0) numeroAtual = "";
+            votoBranco = true;
+            atualizarTela();
+        }
+
+        function corrigir() {
+            if (votoBranco) {
+                votoBranco = false;
+            } else if (numeroAtual.length > 0) {
+                numeroAtual = numeroAtual.slice(0, -1);
+            }
+            atualizarTela();
+        }
+
+        function confirmarVoto() {
+            const cargo = getCargoAtual();
+            
+            if (!votoBranco && numeroAtual.length !== cargo.digitos) {
+                const display = document.getElementById('numero-display');
+                display.classList.add('!border-red-500', 'animate-pulse');
+                setTimeout(() => display.classList.remove('!border-red-500', 'animate-pulse'), 800);
+                return;
+            }
+            
+            let voto = {
+                cargo: cargo.nome,
+                tipo: "VALIDO",
+                numero: votoBranco ? "BRANCO" : numeroAtual
+            };
+            
+            const candidato = cargo.candidatos[numeroAtual];
+            
+            if (votoBranco) {
+                voto.tipo = "BRANCO";
+                voto.descricao = "Voto em branco";
+            } else if (candidato) {
+                voto.tipo = "VALIDO";
+                voto.nome = candidato.nome;
+                voto.partido = candidato.partido;
+                voto.descricao = `${candidato.nome} (${numeroAtual})`;
+            } else {
+                voto.tipo = "NULO";
+                voto.descricao = `Voto nulo (número ${numeroAtual})`;
+            }
+            
+            votosRegistrados.push(voto);
+            mostrarModalConfirmacao(voto);
+        }
+
+        function mostrarModalConfirmacao(voto) {
+            const modal = document.getElementById('modal-confirmacao');
+            const mensagem = document.getElementById('modal-mensagem');
+            const detalhes = document.getElementById('modal-detalhes');
+            
+            mensagem.innerHTML = `Seu voto para <strong>${voto.cargo}</strong> foi registrado com sucesso.`;
+            
+            let htmlDetalhes = '';
+            
+            if (voto.tipo === "BRANCO") {
+                htmlDetalhes = `
+                    <div class="flex items-center gap-x-3">
+                        <div class="w-9 h-9 bg-white/10 rounded-xl flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-file text-white"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">VOTO EM BRANCO</div>
+                            <div class="text-xs text-zinc-400">Registrado sem candidato</div>
+                        </div>
+                    </div>
+                `;
+            } else if (voto.tipo === "VALIDO") {
+                const iniciais = voto.nome.split(' ').map(n => n[0]).slice(0,2).join('');
+                htmlDetalhes = `
+                    <div class="flex items-center gap-x-3">
+                        <div class="w-9 h-9 bg-emerald-600 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-black text-sm">${iniciais}</div>
+                        <div class="min-w-0 flex-1">
+                            <div class="font-bold text-white text-sm leading-tight">${voto.nome}</div>
+                            <div class="text-emerald-400 text-xs">${voto.partido}</div>
+                            <div class="text-[10px] text-emerald-400/70 mt-0.5 font-mono">Nº ${voto.numero}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                htmlDetalhes = `
+                    <div class="flex items-center gap-x-3">
+                        <div class="w-9 h-9 bg-red-500/20 rounded-xl flex-shrink-0 flex items-center justify-center">
+                            <i class="fa-solid fa-ban text-red-400"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-red-400">VOTO NULO</div>
+                            <div class="text-xs text-zinc-400">Número ${voto.numero} não cadastrado</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            detalhes.innerHTML = htmlDetalhes;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function fecharModalEContinuar() {
+            const modal = document.getElementById('modal-confirmacao');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            
+            resetVotoAtual();
+            currentCargoIndex++;
+            
+            if (currentCargoIndex < cargos.length) {
+                atualizarTela();
+            } else {
+                mostrarResumoFinal();
+            }
+        }
+
+        function mostrarResumoFinal() {
+            const modal = document.getElementById('modal-final');
+            const container = document.getElementById('resumo-votos');
+            container.innerHTML = '';
+            
+            votosRegistrados.forEach((voto) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-start gap-x-3 bg-zinc-900 border border-zinc-700 rounded-2xl p-3';
+                
+                let icone = '';
+                let cor = '';
+                
+                if (voto.tipo === 'BRANCO') {
+                    icone = '<i class="fa-solid fa-file-lines text-white"></i>';
+                    cor = 'text-white';
+                } else if (voto.tipo === 'VALIDO') {
+                    icone = '<i class="fa-solid fa-check text-emerald-400"></i>';
+                    cor = 'text-emerald-400';
+                } else {
+                    icone = '<i class="fa-solid fa-ban text-red-400"></i>';
+                    cor = 'text-red-400';
+                }
+                
+                div.innerHTML = `
+                    <div class="mt-0.5 w-5 flex-shrink-0">${icone}</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-baseline">
+                            <span class="font-bold text-white text-sm">${voto.cargo}</span>
+                            <span class="font-mono text-[10px] px-2 py-px rounded bg-zinc-800 text-zinc-400">${voto.numero}</span>
+                        </div>
+                        <div class="${cor} text-xs font-medium mt-px">${voto.descricao}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function fecharModalFinal() {
+            document.getElementById('modal-final').classList.remove('flex');
+            document.getElementById('modal-final').classList.add('hidden');
+        }
+
+        function resetVotoAtual() {
+            numeroAtual = "";
+            votoBranco = false;
+        }
+
+        function reiniciarTudo() {
+            document.getElementById('modal-confirmacao').classList.add('hidden');
+            document.getElementById('modal-confirmacao').classList.remove('flex');
+            document.getElementById('modal-final').classList.add('hidden');
+            document.getElementById('modal-final').classList.remove('flex');
+            
+            currentCargoIndex = 0;
+            votosRegistrados = [];
+            resetVotoAtual();
+            atualizarTela();
+        }
+
+        function inicializar() {
+            atualizarTela();
+            
+            // Atalhos de teclado
+            document.addEventListener('keydown', function(e) {
+                if (e.key >= '0' && e.key <= '9') {
+                    pressionarNumero(e.key);
+                } else if (e.key === 'Backspace' || e.key === 'Delete') {
+                    corrigir();
+                } else if (e.key.toLowerCase() === 'b') {
+                    votoBranco();
+                } else if (e.key === 'Enter') {
+                    confirmarVoto();
+                }
+            });
+            
+            console.log('%c[Urna Eleitoral] Simulação carregada com sucesso!', 'color:#166534');
+        }
+        
+        window.onload = inicializar;
+    </script>
 </body>
 </html>
