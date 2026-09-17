@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio pessoal</title>
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0070f3;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a:hover {
+            color: #0070f3;
+            transition: 0.3s;
+        }
+
+        /* Seções Principal */
+        section {
+            padding: 100px 20px 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Seção Home */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        #home h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        #home p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #0070f3;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0051b3;
+        }
+
+        /* Seção Sobre e Habilidades */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background: #e5e7eb;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Seção Projetos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            color: #0070f3;
+            font-weight: bold;
+        }
+
+        /* Formulário de Contato */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 30px auto 0 auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* Simplificação para mobile */
+            #home h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho de Navegação -->
+    <header>
+        <nav class="nav-container">
+            <div class="logo">MeuPortfólio</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Início -->
+    <section id="home">
+        <h1>Olá, eu sou o [Seu Nome]</h1>
+        <p>Desenvolvedor Front-End & Designer Freelancer</p>
+        <a href="#projects" class="btn">Ver Meus Projetos</a>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #e5e7eb;">
+
+    <!-- Seção Sobre Mim -->
+    <section id="about">
+        <h2>Sobre Mim</h2>
+        <p style="margin-top: 15px; font-size: 18px; color: #555;">
+            Sou apaixonado por tecnologia e criação de experiências digitais limpas e funcionais. 
+            Atualmente trabalho desenvolvendo aplicações web responsivas focadas na usabilidade do usuário.
+        </p>
+        
+        <h3 style="margin-top: 30px;">Minhas Habilidades</h3>
+        <div class="skills-grid">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">Git & GitHub</span>
+            <span class="skill-badge">UI/UX Design</span>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #e5e7eb;">
+
+    <!-- Seção Projetos -->
+    <section id="projects">
+        <h2>Meus Projetos</h2>
+        <div class="projects-grid">
+            <!-- Projeto 1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>E-commerce de Roupas</h3>
+                    <p>Uma interface moderna de loja virtual desenvolvida de ponta a ponta focado em conversão de clientes.</p>
+                    <a href="#" class="project-link">Visualizar projeto &rarr;</a>
+                </div>
+            </div>
+            <!-- Projeto 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>App de Finanças</h3>
+                    <p>Dashboard de controle financeiro pessoal completo com gráficos interativos e controle de despesas.</p>
+                    <a href="#" class="project-link">Visualizar projeto &rarr;</a>
+                </div>
+            </div>
+            <!-- Projeto 3 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Landing Page Institucional</h3>
+                    <p>Página de alta conversão responsiva feita sob medida para uma agência de marketing digital local.</p>
+                    <a href="#" class="project-link">Visualizar projeto &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #e5e7eb;">
+
+    <!-- Seção Contato -->
+    <section id="contact" style="text-align: center;">
+        <h2>Entre em Contato</h2>
+        <p>Gostou do meu trabalho? Vamos criar algo incrível juntos!</p>
+        
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu E-mail" required>
+            <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn" style="border: none; cursor: pointer; width: 100%;">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 [Seu Nome]. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
